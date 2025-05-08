@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PA Prediction">
+    <meta name="author" content="PA Prediction">
+    <title>Polluted Air Prediction</title>
+
+    <!-- Social Meta Tags -->
+    <meta property="og:title" content="PA Prediction">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="http://www.Air-quality-detector-project.com">
+    <meta property="og:image" content="">
+    <meta property="og:locale" content="en_KH">
+    <meta property="og:description" content="PA Prediction project aims to provide a web application that predicts, visualizes, and alerts users about the air quality in Phnom Penh City, Cambodia.">
+    <meta property="og:site_name" content="PA Prediction">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="container">
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <img src="{{ url_for('static', filename='aupp.webp') }}" alt="Logo">
+                <h1 class="title">PA Prediction</h1>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About AQI</a></li>
+                <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+                <li><a href="{{ url_for('visualize') }}">Visualization</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="visualization">
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/pm25_pm10_time_series.png') }}" alt="Time Series Plot" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>PM2.5 and PM10 Over Time</h2>
+                    This graph shows the median concentrations of PM2.5 and PM10 across Phnom Penh over time. Seasonal variations and spikes may reflect environmental changes and human activity.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/pm_boxplot.png') }}" alt="Boxplot" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>Pollutant Distribution</h2>
+                    Box plots reveal the distribution of PM2.5 and PM10 levels across all districts. PM2.5 tends to show more extreme outliers compared to PM10.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/pm_correlation.png') }}" alt="Correlation Scatter Plot" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>PM2.5 vs PM10 Correlation</h2>
+                    A positive correlation is observed between PM2.5 and PM10, suggesting that pollution events typically affect both particles in tandem.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/model_comparison.png') }}" alt="Model Comparison" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>Model Prediction Comparison</h2>
+                    Model performance for predicting air pollution levels.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/future_forecast.png') }}" alt="Future Prediction" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>7-Day Forecast: Linear vs Random Forest</h2>
+                    The 7-day forecast displays predictions from both models. Random Forest provides more reliable results, particularly for peak pollutant levels.
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>PA Prediction</h3>
+                <p>A university project to predict and visualize air quality in Phnom Penh.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About AQI</a></li>
+                    <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+                    <li><a href="{{ url_for('visualize') }}">Visualization</a></li>
+                    <li><a href="https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health" target="_blank" rel="noopener">WHO Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Credits</h4>
+                <p>Created by AUPP Students</p>
+                <p>Made with ❤️ in Phnom Penh</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 PA Prediction. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

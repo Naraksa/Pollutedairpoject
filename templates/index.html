@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PA Prediction">
+    <meta name="author" content="PA Prediction">
+    <title>Polluted Air Prediction</title>
+
+    <!-- Social Meta Tags -->
+    <meta property="og:title" content="PA Prediction">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="http://www.Air-quality-detector-project.com">
+    <meta property="og:image" content="">
+    <meta property="og:locale" content="en_KH">
+    <meta property="og:description" content="PA Prediction project aims to provide a web application that predicts, visualizes, and alerts users about the air quality in Phnom Penh City, Cambodia.">
+    <meta property="og:site_name" content="PA Prediction">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+
+<body class="container">
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <img src="{{ url_for('static', filename='aupp.webp') }}" alt="Logo">
+                <h1 class="title">PA Prediction</h1>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About AQI</a></li>
+                <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+                <li><a href="{{ url_for('visualize') }}">Visualization</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="about-container">
+        <section class="project-purpose">
+            <h2>Purpose of This Project</h2>
+            <p>
+                PA Prediction is a university-driven initiative aimed at addressing one of Phnom Penh's growing environmental concerns: air pollution. With rapid urbanization, increased traffic, and industrial activities, the city's air quality has become a serious issue affecting the health and well-being of its residents.
+            </p>
+            <p>
+                This project was designed to serve three main purposes: 
+                (1) predict future air quality using advanced data models, 
+                (2) visualize historical and current pollution trends through user-friendly graphs and maps, 
+                and (3) provide timely alerts and health recommendations based on forecasted pollution levels.
+            </p>
+            <p>
+                By building a localized air quality prediction system, we hope to empower individuals, communities, and policy makers with data-driven insights. Our goal is to raise public awareness, encourage healthier daily decisions, and ultimately contribute to a cleaner, more informed Phnom Penh.
+            </p>
+        </section>
+        
+        <section class="intro">
+            <h2>What is Air Pollution?</h2>
+            <p>
+                Air pollution refers to the presence of harmful substances in the atmosphere, which can affect human health,
+                the environment, and the climate. Common sources include vehicle emissions, industrial discharge, construction,
+                and burning of fossil fuels.
+            </p>
+            <img src="{{ url_for('static', filename='air pollution diagram.webp') }}" alt="Air Pollution Diagram" class="info-image">
+        </section>
+
+        <section class="pollutants">
+            <h2>Key Air Pollutants</h2>
+            <ul>
+                <li><strong>PM2.5:</strong> Fine inhalable particles with diameters ≤ 2.5 micrometers. Highly dangerous for lungs and heart.</li>
+                <li><strong>PM10:</strong> Particles with diameters ≤ 10 micrometers. Causes respiratory issues.</li>
+                <li><strong>NO₂:</strong> Emitted by vehicles and power plants; worsens asthma.</li>
+                <li><strong>SO₂:</strong> Comes from burning coal and oil; affects lungs.</li>
+                <li><strong>CO:</strong> A colorless gas from combustion, deadly in high amounts.</li>
+                <li><strong>O₃ (Ozone):</strong> Ground-level ozone forms from other pollutants and causes chest pain, coughing, and lung problems.</li>
+            </ul>
+        </section>
+
+        <section class="aqi">
+            <h2>How is Air Quality Measured?</h2>
+            <p>
+                The Air Quality Index (AQI) converts concentrations of pollutants into a scale from 0 to 500. The higher the AQI,
+                the more hazardous the air. Our model predicts the AQI based on historical data in Phnom Penh.
+            </p>
+            <img src="{{ url_for('static', filename='PM2.5scale.jpg') }}" alt="AQI Scale Chart" class="info-image">
+        </section>
+
+        <section class="project-purpose">
+            <h2>Our Mission</h2>
+            <p>
+                This university course project predicts and visualizes AQI in Phnom Penh, Cambodia. We aim to raise awareness
+                and provide actionable health recommendations to protect communities from poor air quality.
+            </p>
+        </section>
+
+        <section class="info-section">
+            <h2>How to Protect Yourself During Air Pollution Events</h2>
+            <p>When air quality deteriorates, it's crucial to take proactive steps to minimize your exposure and safeguard your health. Here are some practical guidelines:</p>
+            <ul>
+              <li><strong>Stay Indoors:</strong> Remain inside, especially during peak pollution hours (typically early morning or evening). Use air purifiers if available.</li>
+              <li><strong>Close Windows & Doors:</strong> Seal your living space to prevent outdoor pollutants from entering.</li>
+              <li><strong>Use N95 or KN95 Masks:</strong> These masks can filter fine particles (PM2.5), unlike regular cloth or surgical masks.</li>
+              <li><strong>Limit Physical Activity:</strong> Avoid strenuous activities like running or cycling outdoors when AQI is high.</li>
+              <li><strong>Monitor Air Quality:</strong> Regularly check air quality reports using apps or systems like this detector to make informed decisions.</li>
+              <li><strong>Stay Hydrated and Eat Antioxidants:</strong> Water flushes toxins, and foods rich in vitamins C and E can help reduce inflammation.</li>
+              <li><strong>Consult a Doctor:</strong> Those with asthma, heart issues, or respiratory conditions should follow medical advice closely during smog events.</li>
+            </ul>
+          </section>
+          
+          <section class="info-section">
+            <h2>Global Actions to Reduce Air Pollution</h2>
+            <p>Air pollution is a shared global issue requiring both personal responsibility and systemic change. Here are key strategies at various levels:</p>
+            <ul>
+              <li><strong>Transition to Renewable Energy:</strong> Replace coal and fossil fuels with solar, wind, and hydroelectric energy sources to reduce emissions.</li>
+              <li><strong>Promote Sustainable Transport:</strong> Use public transport, bike, walk, or drive electric vehicles to cut vehicular emissions.</li>
+              <li><strong>Strengthen Environmental Policy:</strong> Governments must enforce stricter air quality regulations and industrial emission standards.</li>
+              <li><strong>Urban Green Spaces:</strong> Planting trees and maintaining parks helps absorb carbon dioxide and particulate matter.</li>
+              <li><strong>Waste Management:</strong> Avoid open burning of waste and promote recycling to reduce harmful smoke and chemicals.</li>
+              <li><strong>Public Awareness Campaigns:</strong> Educating communities about pollution sources and solutions is key to behavioral change.</li>
+              <li><strong>Invest in Clean Technologies:</strong> Innovation in cleaner manufacturing and energy systems can make industries more eco-friendly.</li>
+            </ul>
+            <p>Together, these steps form a roadmap toward cleaner air and a healthier planet. Your awareness—and action—matters.</p>
+          </section>
+
+        <section class="resources">
+            <h2>Further Reading</h2>
+            <ul>
+                <li><a href="https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health" target="_blank" rel="noopener">WHO: Ambient Air Pollution</a></li>
+                <li><a href="https://www.epa.gov/aqi" target="_blank" rel="noopener">EPA Air Quality Index (AQI)</a></li>
+                <li><a href="https://airquality.opendatahub.com.kh/" target="_blank" rel="noopener">Cambodia Open Data Hub - Air Quality</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="loader-text">Predicting AQI... Please wait</p>
+    </div>
+
+    <main class="prediction-section">
+        <h2>7-Day Air Quality Prediction</h2>
+
+        <form action="{{ url_for('predict') }}" method="post" class="prediction-form" onsubmit="showLoader()">
+            <button type="submit" class="predict-button">Show Forecast</button>
+        </form>
+
+        {% if predictions %}
+        <section class="forecast-result">
+            <h3>Predicted AQI for the Next 7 Days</h3>
+            <ul class="prediction-list">
+                {% for row in predictions -%}
+                <li class="prediction-item">
+                    <strong>{{ row.date.strftime('%A, %d %B %Y') }}</strong>
+                    <ul class="sub-info">
+                        <li><span>AQI:</span> {{ row.median | round(2) }}</li>
+                        <li><span>Status:</span> {{ row.status }}</li>
+                        <li><span>Recommendation:</span> {{ row.recommendation }}</li>
+                    </ul>
+                </li>
+                {%- endfor %}
+            </ul>
+        </section>
+        {% endif %}
+    </main>
+    <main class="visualization">
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/pm25_pm10_time_series.png') }}" alt="Time Series Plot" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>PM2.5 and PM10 Over Time</h2>
+                    This graph shows the median concentrations of PM2.5 and PM10 across Phnom Penh over time. Seasonal variations and spikes may reflect environmental changes and human activity.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/pm_boxplot.png') }}" alt="Boxplot" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>Pollutant Distribution</h2>
+                    Box plots reveal the distribution of PM2.5 and PM10 levels across all districts. PM2.5 tends to show more extreme outliers compared to PM10.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/pm_correlation.png') }}" alt="Correlation Scatter Plot" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>PM2.5 vs PM10 Correlation</h2>
+                    A positive correlation is observed between PM2.5 and PM10, suggesting that pollution events typically affect both particles in tandem.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/model_comparison.png') }}" alt="Model Comparison" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>Model Prediction Comparison</h2>
+                    Model performance for predicting air pollution levels.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <figure class="visualization-figure">
+                <img src="{{ url_for('static', filename='images/future_forecast.png') }}" alt="Future Prediction" class="responsive-img">
+                <figcaption class="caption">
+                    <h2>7-Day Forecast: Linear vs Random Forest</h2>
+                    The 7-day forecast displays predictions from both models. Random Forest provides more reliable results, particularly for peak pollutant levels.
+                </figcaption>
+            </figure>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>PA Prediction</h3>
+                <p>A university project to predict and visualize air quality in Phnom Penh.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About AQI</a></li>
+                    <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+                    <li><a href="{{ url_for('visualize') }}">Visualization</a></li>
+                    <li><a href="https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health" target="_blank" rel="noopener">WHO Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Credits</h4>
+                <p>Created by AUPP Students</p>
+                <p>Made with ❤️ in Phnom Penh</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 PA Prediction. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+
+

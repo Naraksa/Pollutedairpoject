@@ -1,0 +1,452 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define CSS variables for colors */
+:root {
+    --primary-color: rgb(3, 3, 79);
+    --secondary-color: rgb(63, 57, 231);
+    --text-color: #ffffff;
+    --title-color: rgb(77, 41, 103);
+}
+
+/* Title styles */
+.title {
+    font-size: 1rem;
+    text-align: center;
+    margin: 10px 0;
+    color: var(--title-color);
+}
+
+/* Navigation bar styles */
+.nav {
+    background-color: var(--primary-color);
+    display: flex; /* Use flexbox for horizontal alignment */
+    flex-flow: row nowrap; /* Ensure items stay in a single row */
+    justify-content: space-between; /* Space between left and right sections */
+    align-items: center; /* Align items vertically in the center */
+    text-align: center;
+    position: sticky;
+    top: 0; /* Ensure the navbar stays at the top */
+    z-index: 1000; /* Prevent overlap issues */
+    padding: 10px 20px; /* Add padding for better spacing */
+}
+
+/* Logo and title container */
+.nav-left {
+    display: flex;
+    align-items: center; /* Align logo and title vertically */
+    gap: 10px; /* Add spacing between logo and title */
+}
+
+.nav-left img {
+    width: 40px; /* Adjust logo size */
+    height: 40px; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the logo fits within the dimensions */
+}
+
+.nav-left .title {
+    font-size: 1.5rem; /* Adjust title size */
+    color: var(--text-color); /* Match the text color with the nav bar */
+    margin: 0; /* Remove default margin */
+}
+
+/* Navigation links container */
+.nav ul {
+    display: flex; /* Align navigation links in a row */
+    list-style: none; /* Remove default list styling */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    gap: 20px; /* Add spacing between links */
+}
+
+.nav li {
+    list-style-type: none;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1rem; /* Use relative font size for scalability */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth hover effect */
+}
+
+.nav a:hover,
+.nav a:focus {
+    background-color: var(--secondary-color);
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    outline: none; /* Remove default focus outline */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .nav {
+        flex-flow: column nowrap; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .nav-left {
+        flex-flow: column nowrap; /* Stack logo and title vertically */
+        align-items: center; /* Center logo and title */
+        gap: 5px; /* Reduce spacing between logo and title */
+    }
+
+    .nav ul {
+        flex-flow: column nowrap; /* Stack navigation links vertically */
+        gap: 10px; /* Add spacing between links */
+        width: 100%; /* Make links take full width */
+        text-align: center; /* Center-align links */
+    }
+
+    .nav a {
+        margin: 5px 0; /* Add vertical spacing between links */
+        padding: 10px; /* Adjust padding for better touch targets */
+    }
+
+    .title {
+        font-size: 1.2rem; /* Slightly reduce title size */
+    }
+}
+
+/* Responsive design for very small screens */
+@media (max-width: 480px) {
+    .nav {
+        padding: 5px; /* Reduce padding for smaller screens */
+    }
+
+    .nav-left img {
+        width: 30px; /* Reduce logo size */
+        height: 30px; /* Maintain aspect ratio */
+    }
+
+    .title {
+        font-size: 1rem; /* Further reduce title size */
+        text-align: center; /* Center-align the title */
+    }
+
+    .nav ul {
+        gap: 5px; /* Reduce spacing between links */
+    }
+
+    .nav a {
+        font-size: 0.9rem; /* Reduce font size for smaller screens */
+        padding: 8px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .visualization {
+        padding: 10px; /* Reduce padding around the visualization */
+        margin: 10px auto; /* Adjust margin for smaller screens */
+    }
+
+    .visualization img {
+        max-width: 100%; /* Ensure the image scales to fit the screen */
+        border-radius: 6px; /* Slightly reduce border radius */
+    }
+}
+
+.info-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0px;
+    -webkit-backdrop-filter: blur(6px); /* For Safari support */
+    backdrop-filter: blur(6px);
+    color: #000000;
+}
+.info-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #000000;
+}
+.info-section ul {
+    list-style-type: disc;
+}
+.info-section li {
+    margin-bottom: 1rem;
+}
+
+.visualization {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    overflow: hidden;
+    background-color: #f9f9f9;
+    padding: 20px
+}
+
+.visualization img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 800px; /* Limit maximum width for larger screens */
+    margin: 20px auto; /* Add margin for spacing */
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
+    transition: transform 0.3s ease; 
+}
+.visualization img:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Caption styles for figures */
+.caption {
+    font-size: 0.95rem;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+/* Optional: Better spacing between sections */
+.visualization section {
+    margin-bottom: 50px;
+}
+
+/* Prediction Page Styles */
+.prediction-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.prediction-section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.prediction-form {
+    margin: 20px auto;
+}
+
+.predict-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.predict-button:hover,
+.predict-button:focus {
+    background-color: rgb(91, 82, 255);
+    transform: scale(1.05);
+    outline: none;
+}
+
+.forecast-result {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.forecast-result h3 {
+    color: var(--title-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.prediction-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.prediction-item {
+    background-color: #fff;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.prediction-item strong {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sub-info {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sub-info li {
+    padding: 5px 0;
+}
+
+.sub-info span {
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .prediction-section {
+        padding: 20px;
+    }
+
+    .predict-button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .prediction-item {
+        padding: 15px;
+    }
+}
+
+/* 🔄 Loading overlay */
+.loader-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #d3d3d3;
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.loader-text {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Footer Styling */
+.site-footer {
+    background-color:rgb(3, 3, 79);
+    color: #e2e8f0;
+    padding: 60px 20px 30px;
+    font-size: 0.95rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+}
+
+.footer-left h3 {
+    color: #ffffff; /* Elegant purple title */
+    margin-bottom: 10px;
+}
+
+.footer-left p {
+    line-height: 1.6;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    margin-bottom: 10px;
+    color: #f1f5f9;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #facc15;
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 6px 0;
+    color: #e2e8f0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #334155;
+    padding-top: 15px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-links,
+    .footer-contact {
+        margin-bottom: 20px;
+    }
+}
+
+
+

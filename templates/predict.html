@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PA Prediction">
+    <meta name="author" content="PA Prediction">
+    <title>PA Prediction | Predict AQI</title>
+
+    <!-- Social Meta Tags -->
+    <meta property="og:title" content="PA Prediction">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="http://www.Air-quality-detector-project.com">
+    <meta property="og:image" content="">
+    <meta property="og:locale" content="en_KH">
+    <meta property="og:description" content="PA Prediction project aims to provide a web application that predicts, visualizes, and alerts users about the air quality in Phnom Penh City, Cambodia.">
+    <meta property="og:site_name" content="PA Prediction">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function showLoader() {
+            document.getElementById("loader").style.display = "flex";
+        }
+    </script>
+</head>
+
+<body class="container">
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <img src="{{ url_for('static', filename='aupp.webp') }}" alt="Logo">
+                <h1 class="title">PA Prediction</h1>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About AQI</a></li>
+                <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+                <li><a href="{{ url_for('visualize') }}">Visualization</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="loader" class="loader-overlay">
+        <div class="spinner"></div>
+        <p class="loader-text">Predicting AQI... Please wait</p>
+    </div>
+
+    <main class="prediction-section">
+        <h2>7-Day Air Quality Prediction</h2>
+
+        <form action="{{ url_for('predict') }}" method="post" class="prediction-form" onsubmit="showLoader()">
+            <button type="submit" class="predict-button">Show Forecast</button>
+        </form>
+
+        {% if predictions %}
+        <section class="forecast-result">
+            <h3>Predicted AQI for the Next 7 Days</h3>
+            <ul class="prediction-list">
+                {% for row in predictions -%}
+                <li class="prediction-item">
+                    <strong>{{ row.date.strftime('%A, %d %B %Y') }}</strong>
+                    <ul class="sub-info">
+                        <li><span>AQI:</span> {{ row.median | round(2) }}</li>
+                        <li><span>Status:</span> {{ row.status }}</li>
+                        <li><span>Recommendation:</span> {{ row.recommendation }}</li>
+                    </ul>
+                </li>
+                {%- endfor %}
+            </ul>
+        </section>
+        {% endif %}
+    </main>
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>PA Prediction</h3>
+                <p>A university project to predict and visualize air quality in Phnom Penh.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About AQI</a></li>
+                    <li><a href="{{ url_for('predict') }}">Prediction</a></li>
+                    <li><a href="{{ url_for('visualize') }}">Visualization</a></li>
+                    <li><a href="https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health" target="_blank" rel="noopener">WHO Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Credits</h4>
+                <p>Created by AUPP Students</p>
+                <p>Made with ❤️ in Phnom Penh</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 PA Prediction. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
